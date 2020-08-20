@@ -7,6 +7,4 @@
 # s81yyy
 # Броя на потребителите е 2
 
-users | sed 's/\s/\n/' | uniq | tee >(cat) | wc -l
-    | read count
-    ; echo "Броя на потребителите е: $count"
+users | sed 's/\s/\n/' | uniq | tee >(cat) | wc -l | read count ; echo "Броя на потребителите е: $count"
