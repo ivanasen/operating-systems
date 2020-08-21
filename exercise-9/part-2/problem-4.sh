@@ -8,3 +8,14 @@
 # екрана броя им, а ако не – изпраща  подходящо съобщение на потребителя подаден
 # като параметър./SUBNIZ_FILE/
 
+usr=$1
+file=$2
+
+fname=$(cat $file | tail -n 1 | cut -d '1' -f 1)
+files_count=$(find $HOME/../ -name $fname | wc -l)
+
+if [[ $files_count -gt 0 ]]; then
+    echo $files_count
+else
+    echo "No such files exist with name: $fname" | write $usr
+fi

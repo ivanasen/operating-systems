@@ -6,3 +6,11 @@
 # символа от третия ред на подадения файл, чиито собственик е подедения
 # потребител в цялата файлова система с корен подадената директория./NUMBER_FIKS_FILE/
 
+dir=$1
+usr=$2
+file=$3
+
+name=$(cat $file | head -n 3 | tail -n 1 | head -c 6)
+count=$(find $dir -name "$name" -user $usr | wc -l)
+echo $count
+
