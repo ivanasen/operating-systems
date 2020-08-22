@@ -13,7 +13,7 @@ const int ERR = -1;
 void parent(const char* cmd) {
     int res;
     wait(&res);
-    if (!res) {
+    if (res == 0) {
         printf("%s\n", cmd);
     }
 }

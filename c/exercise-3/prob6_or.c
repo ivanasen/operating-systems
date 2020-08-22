@@ -10,7 +10,7 @@
 
 const int ERR = 1;
 
-int forkAndExec(char* cmd) {
+pid_t forkAndExec(char* cmd) {
     pid_t pid = fork();
     if (pid == -1) {
         perror("Couldn't fork!");
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 
     int status;
     waitpid(pid1, &status, 0);
-    if (status) {
+    if (status != 0) {
         forkAndExec(cmd2);
     }
 
