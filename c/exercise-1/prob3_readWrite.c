@@ -11,11 +11,10 @@
 const char *OUTPUT_NAME = "readWrite.out";
 const int ERROR = 1;
 const int READ_SIZE = 10;
+const int BUFFER_SIZE = READ_SIZE + 1;
 
 void readFile(int fileDescriptor) {
-    int BUFFER_SIZE = READ_SIZE + 1;
-    char buffer[BUFFER_SIZE];
-    memset(buffer, 0, BUFFER_SIZE);
+    char buffer[BUFFER_SIZE] = {'\0'};
     int charCount = 0;
 
     while ((charCount = read(fileDescriptor, buffer, READ_SIZE)) > 0) {
