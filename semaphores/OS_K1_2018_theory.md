@@ -1,3 +1,5 @@
+[Problems link](http://skelet.ludost.net/OS/problems/OS_K1_2018_theory.pdf)
+
 ## KN1
 
 ```python

@@ -1,3 +1,5 @@
+[Problems link](http://skelet.ludost.net/OS/problems/OS_K12_2019_theory.pdf)
+
 ```python
 # New solution
 # Initial
