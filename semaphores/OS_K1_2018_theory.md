@@ -63,3 +63,32 @@ sem_dp.wait()
 sem_dq.wait()
 r_3
 ```
+
+## SI
+
+```python
+#initial
+sem_a = Semaphore(0)
+sem_b = Semaphore(1)
+
+# P
+p_1
+sem_b.wait()
+p_2
+sem_a.signal()
+p_3
+
+# Q
+q_1
+sem_b.wait()
+q_2
+sem_a.signal()
+q_3
+
+# R
+r_1
+sem_a.wait()
+r_2
+sem_b.signal()
+r_3
+```
