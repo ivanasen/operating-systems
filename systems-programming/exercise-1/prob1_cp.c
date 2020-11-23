@@ -1,4 +1,4 @@
-//	Да се напише програма на C, която реализира командата cp файл1 файл2
+// Да се напише програма на C, която реализира командата cp файл1 файл2
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -43,15 +43,18 @@ int main(int argc, char **argv) {
 
         int writeCount = 0;
         while(writeCount < readCount) {
-            writeCount += write(dstDescriptor, buffer + writeCount, readCount - writeCount);
-            if (writeCount < 0 && errno == EINTR) {
+            int writeCountCurr = write(dstDescriptor, buffer + writeCount, readCount - writeCount);
+            if (writeCountCurr < 0 && errno == EINTR) {
                 continue;
-            } else if (writeCount < 0) {
+            } else if (writeCountCurr < 0) {
                 puts("Error writing to file");
                 return 1;
             }
+            writeCount += writeCountCurr;
         }
     }
 
+    close(srcDescriptor);
+    close(dstDescriptor);
     return 0;
 }
